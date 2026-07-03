@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { BigButton } from '@/components/BigButton';
 import { CardView } from '@/components/CardView';
 import { MixerPanel } from '@/components/MixerPanel';
-import { VUMeter } from '@/components/VUMeter';
 import { acquireWakeLock } from '@/lib/wakeLock';
 import { useGameStore } from '@/store/useGameStore';
 
@@ -64,7 +63,6 @@ export function GameScreen() {
 
       {stage === 'pass' && (
         <div className="stage stage-pass">
-          <VUMeter bars={10} />
           <p className="stage-pass__label">Passa o celular para</p>
           <h2 className="stage-pass__name">{currentPlayer}</h2>
           <BigButton onClick={reveal}>Peguei! Mostrar carta</BigButton>

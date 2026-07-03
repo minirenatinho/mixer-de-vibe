@@ -1,7 +1,6 @@
 import { BigButton } from '@/components/BigButton';
 import { MixerPanel } from '@/components/MixerPanel';
 import { PresetChips } from '@/components/PresetChips';
-import { VUMeter } from '@/components/VUMeter';
 import { useGameStore } from '@/store/useGameStore';
 
 export function MixerScreen() {
@@ -10,7 +9,6 @@ export function MixerScreen() {
   return (
     <div className="screen">
       <header className="brand">
-        <VUMeter bars={14} />
         <h1 className="brand__title">Mixer de Vibe</h1>
         <p className="brand__tagline">Ajusta a mesa, passa o celular, paga o mico.</p>
       </header>

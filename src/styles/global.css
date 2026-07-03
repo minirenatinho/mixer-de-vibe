@@ -258,41 +258,6 @@ ol {
   white-space: nowrap;
 }
 
-/* ---------- VU meter decorativo ---------- */
-
-.vu {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 26px;
-}
-
-.vu i {
-  display: block;
-  width: 5px;
-  height: 100%;
-  border-radius: 2px;
-  background: linear-gradient(to top, #2dd674 0%, #2dd674 55%, #ffd23d 75%, #ff5d5d 100%);
-  transform-origin: bottom;
-  animation: vu-bounce var(--dur, 600ms) ease-in-out var(--d, 0ms) infinite alternate;
-}
-
-@keyframes vu-bounce {
-  from {
-    transform: scaleY(0.15);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .vu i {
-    animation: none;
-    transform: scaleY(0.5);
-  }
-}
-
 /* ---------- botões ---------- */
 
 .big-btn {
