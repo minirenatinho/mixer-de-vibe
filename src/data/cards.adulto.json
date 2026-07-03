@@ -1,0 +1,8 @@
+[
+  { "id": "adulto_001", "tipo": "pergunta", "texto": "[PREENCHER: pergunta +18 explícita — ex.: pergunta direta sobre a vida sexual do jogador da vez. Use {jogador} para o nome.]", "notas": { "acidez": 4, "picancia": 8, "intimidade": 8, "exposicao": 6, "caos": 3 }, "min_jogadores": 2 },
+  { "id": "adulto_002", "tipo": "pergunta", "texto": "[PREENCHER: pergunta +18 bem explícita, nível máximo de picância. Pode usar {outro_jogador} para envolver outra pessoa da roda.]", "notas": { "acidez": 5, "picancia": 10, "intimidade": 8, "exposicao": 7, "caos": 4 }, "min_jogadores": 2 },
+  { "id": "adulto_003", "tipo": "desafio", "texto": "[PREENCHER: desafio +18 executado na hora — calibre a exposição pela nota ao lado. Use {jogador} e, se quiser, {outro_jogador}.]", "notas": { "acidez": 4, "picancia": 9, "intimidade": 6, "exposicao": 8, "caos": 5 }, "min_jogadores": 2 },
+  { "id": "adulto_004", "tipo": "desafio", "texto": "[PREENCHER: desafio +18 nível máximo. Lembre: min_jogadores 3 se o texto usar {outro_jogador} com 'a sala' junto.]", "notas": { "acidez": 5, "picancia": 10, "intimidade": 7, "exposicao": 9, "caos": 5 }, "min_jogadores": 2 },
+  { "id": "adulto_005", "tipo": "todos_apontam", "texto": "[PREENCHER: pergunta +18 de apontar — 'quem daqui...?' com teor adulto explícito.]", "notas": { "acidez": 6, "picancia": 8, "intimidade": 6, "exposicao": 5, "caos": 4 }, "min_jogadores": 3 },
+  { "id": "adulto_006", "tipo": "todos_apontam", "texto": "[PREENCHER: pergunta +18 de apontar, nível máximo.]", "notas": { "acidez": 6, "picancia": 10, "intimidade": 7, "exposicao": 6, "caos": 4 }, "min_jogadores": 3 }
+]

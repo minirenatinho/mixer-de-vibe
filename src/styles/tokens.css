@@ -1,0 +1,34 @@
+:root {
+  color-scheme: dark;
+
+  /* superfícies */
+  --bg: #0b0c10;
+  --bg-raised: #12141b;
+  --panel: #161923;
+  --panel-2: #1d2130;
+  --line: #2a2f40;
+
+  /* texto */
+  --text: #f4f5f9;
+  --text-dim: #9aa1b5;
+
+  /* semânticas */
+  --accent: #39ff8e;
+  --danger: #ff4d5e;
+  --warn: #ffb02e;
+
+  /* uma cor neon por dimensão do mixer */
+  --c-acidez: #c8ff3d;
+  --c-picancia: #ff3d7f;
+  --c-intimidade: #b06bff;
+  --c-exposicao: #ffa42e;
+  --c-caos: #3de1ff;
+
+  /* uma cor por tipo de carta */
+  --c-pergunta: #3de1ff;
+  --c-desafio: #ffa42e;
+  --c-todos: #b06bff;
+  --c-penalidade: #ff4d5e;
+
+  --radius: 18px;
+}
