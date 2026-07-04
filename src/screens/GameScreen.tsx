@@ -111,7 +111,7 @@ export function GameScreen() {
         <div className="overlay" onClick={closeMixerOverlay}>
           <div className="sheet" onClick={(e) => e.stopPropagation()}>
             <h3 className="sheet__title">Ajustar a vibe</h3>
-            <p className="text-dim">Vale mudar no meio do jogo — a noite evolui.</p>
+            <p className="text-dim">Vale mudar no meio do jogo. A noite evolui.</p>
             <MixerPanel />
             <BigButton variant="ghost" onClick={closeMixerOverlay}>
               Fechar mixer

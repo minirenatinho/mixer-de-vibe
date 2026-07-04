@@ -10,7 +10,7 @@ export function MixerScreen() {
     <div className="screen">
       <header className="brand">
         <h1 className="brand__title">Mixer de Vibe</h1>
-        <p className="brand__tagline">Ajusta a mesa, passa o celular, paga o mico.</p>
+        <p className="brand__tagline">Faça um remix do rolê com perguntas e desafios ao seu modo.</p>
       </header>
 
       <PresetChips />
@@ -20,7 +20,7 @@ export function MixerScreen() {
       </section>
 
       <p className="text-dim text-center hint">
-        Os faders controlam o teor das cartas — do almoço de domingo à madrugada.
+        Os faders controlam o teor das cartas. Do almoço de domingo ao after insalubre.
       </p>
 
       <BigButton onClick={goToPlayers}>Escolher jogadores →</BigButton>
