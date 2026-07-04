@@ -10,9 +10,8 @@ export function AdultGateModal() {
 
   return (
     <div className="overlay overlay--center" role="dialog" aria-modal="true">
-      <div className="modal">
-        <span className="modal__emoji">🌶️</span>
-        <h2>Picância no talo!</h2>
+      <div className="modal modal--picancia">
+        <h2>Picância no talo</h2>
         <p>
           Nesse nível entram cartas de conteúdo adulto (+18). Todo mundo na roda é maior de
           idade?

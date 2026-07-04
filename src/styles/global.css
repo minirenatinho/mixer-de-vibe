@@ -194,16 +194,17 @@ ol {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
-  background: linear-gradient(
-    90deg,
-    var(--c-caos),
-    var(--c-acidez),
-    var(--c-exposicao),
-    var(--c-picancia)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+}
+
+.brand__leds {
+  display: flex;
+  gap: 6px;
+}
+
+.brand__leds i {
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
 }
 
 .brand__tagline {
@@ -233,7 +234,7 @@ ol {
 .preset-chip--active {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
 }
 
 /* ---------- mesa de mixagem ---------- */
@@ -376,7 +377,7 @@ ol {
 .big-btn {
   width: 100%;
   padding: 18px 20px;
-  border-radius: 16px;
+  border-radius: 12px;
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.01em;
@@ -396,7 +397,7 @@ ol {
 .big-btn--primary {
   background: var(--accent);
   color: #06280f;
-  box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .big-btn--success {
@@ -431,10 +432,10 @@ ol {
   height: 44px;
   display: grid;
   place-items: center;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--line);
   background: var(--panel);
-  font-size: 1.1rem;
+  color: var(--text-dim);
 }
 
 /* ---------- jogo ---------- */
@@ -507,7 +508,7 @@ ol {
   gap: 18px;
   min-height: 38vh;
   padding: 26px 22px;
-  border-radius: 22px;
+  border-radius: 16px;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
@@ -522,7 +523,6 @@ ol {
   height: 3px;
   border-radius: 0 0 4px 4px;
   background: var(--card-color);
-  box-shadow: 0 0 18px var(--card-color);
 }
 
 .game-card--pergunta {
@@ -592,7 +592,7 @@ ol {
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-bottom: none;
-  border-radius: 24px 24px 0 0;
+  border-radius: 18px 18px 0 0;
   padding: 22px 20px calc(env(safe-area-inset-bottom, 0px) + 22px);
   display: grid;
   gap: 16px;
@@ -604,19 +604,38 @@ ol {
 }
 
 .modal {
+  --modal-color: var(--accent);
+  position: relative;
   width: min(420px, 100%);
   background: var(--bg-raised);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 26px 22px;
+  border-radius: 16px;
+  padding: 30px 22px 26px;
   display: grid;
   gap: 14px;
   justify-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
-.modal__emoji {
-  font-size: 3rem;
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--modal-color);
+}
+
+.modal--danger {
+  --modal-color: var(--danger);
+}
+
+.modal--picancia {
+  --modal-color: var(--c-picancia);
 }
 
 .modal h2 {
@@ -641,7 +660,7 @@ ol {
   min-width: 0;
   padding: 16px;
   font-size: 1.1rem;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: var(--panel);
   color: var(--text);
@@ -654,11 +673,11 @@ ol {
 .player-form button {
   width: 56px;
   flex-shrink: 0;
-  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
   background: var(--accent);
   color: #06280f;
-  font-size: 1.6rem;
-  font-weight: 800;
 }
 
 .player-list {
@@ -673,7 +692,7 @@ ol {
   gap: 10px;
   padding: 14px 16px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--panel);
   font-size: 1.15rem;
   font-weight: 700;
@@ -728,11 +747,6 @@ ol {
 /* ---------- movimento ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
-  .brand__title {
-    background-size: 200% 100%;
-    animation: brand-pan 9s ease-in-out infinite alternate;
-  }
-
   .overlay {
     animation: fade-in 160ms ease-out;
   }
@@ -751,15 +765,6 @@ ol {
 
   .stage-pass__name {
     animation: rise-in 260ms cubic-bezier(0.2, 0.9, 0.3, 1);
-  }
-}
-
-@keyframes brand-pan {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
   }
 }
 

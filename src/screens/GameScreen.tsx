@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BigButton } from '@/components/BigButton';
 import { CardView } from '@/components/CardView';
+import { IconSliders, IconTrophy, IconX } from '@/components/icons';
 import { MixerPanel } from '@/components/MixerPanel';
 import { acquireWakeLock } from '@/lib/wakeLock';
 import { useGameStore } from '@/store/useGameStore';
@@ -48,15 +49,15 @@ export function GameScreen() {
           onClick={() => setConfirmingEnd(true)}
           aria-label="Encerrar jogo"
         >
-          ✕
+          <IconX />
         </button>
         <span className="game-header__meta">Carta {round}</span>
         <div className="game-header__actions">
           <button className="icon-btn" onClick={openMixerOverlay} aria-label="Abrir mixer">
-            🎛️
+            <IconSliders />
           </button>
           <button className="icon-btn" onClick={toggleScore} aria-label="Ver placar">
-            🏆
+            <IconTrophy />
           </button>
         </div>
       </header>
@@ -74,10 +75,10 @@ export function GameScreen() {
           <CardView tipo={current.card.tipo} texto={current.texto} />
           <div className="btn-row">
             <BigButton variant="success" onClick={() => resolveCard('cumpriu')}>
-              Cumpriu ✔
+              Cumpriu
             </BigButton>
             <BigButton variant="warn" onClick={() => resolveCard('pulou')}>
-              Pulou ✖
+              Pulou
             </BigButton>
           </div>
         </div>
@@ -90,13 +91,13 @@ export function GameScreen() {
             <p className="game-card__text">{penalty.texto}</p>
             <p className="game-card__hint">Pulou, pagou. As regras são as regras.</p>
           </article>
-          <BigButton onClick={penaltyDone}>Feito! Próximo 👉</BigButton>
+          <BigButton onClick={penaltyDone}>Feito, próximo</BigButton>
         </div>
       )}
 
       {stage === 'empty' && (
         <div className="stage stage-empty">
-          <p className="stage-empty__title">As cartas dessa vibe acabaram! 🎚️</p>
+          <p className="stage-empty__title">As cartas dessa vibe acabaram</p>
           <p className="text-dim text-center">
             Mexa nos faders para abrir espaço para cartas novas.
           </p>
@@ -123,7 +124,7 @@ export function GameScreen() {
       {scoreOpen && (
         <div className="overlay" onClick={toggleScore}>
           <div className="sheet" onClick={(e) => e.stopPropagation()}>
-            <h3 className="sheet__title">Placar 🏆</h3>
+            <h3 className="sheet__title">Placar</h3>
             <p className="text-dim">Ponto para quem cumpre. Opcional: a zoeira já é a vitória.</p>
             <ol className="score-list">
               {ranking.map(({ player, score }, index) => (
@@ -142,8 +143,7 @@ export function GameScreen() {
 
       {confirmingEnd && (
         <div className="overlay overlay--center" role="dialog" aria-modal="true">
-          <div className="modal">
-            <span className="modal__emoji">🛑</span>
+          <div className="modal modal--danger">
             <h2>Encerrar o jogo?</h2>
             <p>O placar some, mas as histórias ficam.</p>
             <BigButton

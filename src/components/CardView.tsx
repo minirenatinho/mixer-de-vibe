@@ -15,9 +15,7 @@ interface CardViewProps {
 export function CardView({ tipo, texto }: CardViewProps) {
   return (
     <article className={`game-card game-card--${TYPE_CLASS[tipo]}`}>
-      <span className="game-card__badge">
-        {tipo === 'todos_apontam' ? '👉 Todos apontam' : CARD_TYPE_LABELS[tipo]}
-      </span>
+      <span className="game-card__badge">{CARD_TYPE_LABELS[tipo]}</span>
       <p className="game-card__text">{texto}</p>
       {tipo === 'todos_apontam' && (
         <p className="game-card__hint">Leia em voz alta. No três… todo mundo aponta para alguém!</p>

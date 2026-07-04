@@ -3,7 +3,6 @@ import type { Levels } from './types';
 export interface Preset {
   id: string;
   nome: string;
-  emoji: string;
   levels: Levels;
 }
 
@@ -12,25 +11,21 @@ export const PRESETS: Preset[] = [
   {
     id: 'familia',
     nome: 'Família',
-    emoji: '🧺',
     levels: { acidez: 3, picancia: 0, intimidade: 2, exposicao: 4, caos: 5 },
   },
   {
     id: 'trabalho',
     nome: 'Trabalho',
-    emoji: '💼',
     levels: { acidez: 4, picancia: 1, intimidade: 2, exposicao: 4, caos: 4 },
   },
   {
     id: 'festa',
     nome: 'Festa',
-    emoji: '🎉',
     levels: { acidez: 6, picancia: 5, intimidade: 5, exposicao: 7, caos: 7 },
   },
   {
     id: 'madrugada',
     nome: 'Madrugada entre íntimos',
-    emoji: '🌙',
     levels: { acidez: 7, picancia: 8, intimidade: 9, exposicao: 8, caos: 6 },
   },
 ];

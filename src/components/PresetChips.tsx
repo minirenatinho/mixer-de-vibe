@@ -17,7 +17,7 @@ export function PresetChips() {
           className={`preset-chip${sameLevels(levels, preset.levels) ? ' preset-chip--active' : ''}`}
           onClick={() => applyPreset(preset.levels)}
         >
-          {preset.emoji} {preset.nome}
+          {preset.nome}
         </button>
       ))}
     </div>

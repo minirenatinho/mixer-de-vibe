@@ -7,6 +7,9 @@ import { fileURLToPath } from 'node:url';
 // Servido no GitHub Pages em https://<usuario>.github.io/mixer-de-vibe/
 export default defineConfig({
   base: '/mixer-de-vibe/',
+  server: {
+    port: Number(process.env.PORT) || 5173,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import { BigButton } from '@/components/BigButton';
+import { IconArrowLeft, IconPlus, IconX } from '@/components/icons';
 import { useGameStore } from '@/store/useGameStore';
 
 const MIN_PLAYERS = 2;
@@ -33,7 +34,7 @@ export function PlayersScreen() {
     <div className="screen">
       <header className="screen-header">
         <button className="icon-btn" onClick={backToMixer} aria-label="Voltar ao mixer">
-          ←
+          <IconArrowLeft />
         </button>
         <h1 className="screen-title">Quem vai jogar?</h1>
       </header>
@@ -54,7 +55,7 @@ export function PlayersScreen() {
           autoComplete="off"
         />
         <button type="submit" aria-label="Adicionar jogador">
-          +
+          <IconPlus size={22} />
         </button>
       </form>
 
@@ -70,7 +71,7 @@ export function PlayersScreen() {
             </span>
             <span className="player-list__name">{player}</span>
             <button onClick={() => removePlayer(index)} aria-label={`Remover ${player}`}>
-              ✕
+              <IconX size={16} />
             </button>
           </li>
         ))}
@@ -84,7 +85,7 @@ export function PlayersScreen() {
 
       <div className="screen-footer">
         <BigButton disabled={players.length < MIN_PLAYERS} onClick={startGame}>
-          Começar o jogo 🎉
+          Começar o jogo
         </BigButton>
       </div>
     </div>

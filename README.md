@@ -1,4 +1,4 @@
-# 🎛️ Mixer de Vibe
+# Mixer de Vibe
 
 Party game em português brasileiro para jogar com **um único celular** passando de mão em mão.
 O app sorteia perguntas absurdas, desafios e cartas de "todos apontam" — e o **Mixer de Vibe**
