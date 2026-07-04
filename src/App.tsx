@@ -1,4 +1,5 @@
 import { AdultGateModal } from '@/components/AdultGateModal';
+import { VibeBackground } from '@/components/VibeBackground';
 import { GameScreen } from '@/screens/GameScreen';
 import { MixerScreen } from '@/screens/MixerScreen';
 import { PlayersScreen } from '@/screens/PlayersScreen';
@@ -9,6 +10,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <VibeBackground />
       {phase === 'mixer' && <MixerScreen />}
       {phase === 'players' && <PlayersScreen />}
       {phase === 'game' && <GameScreen />}

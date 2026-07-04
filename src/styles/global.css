@@ -42,6 +42,94 @@ ol {
   list-style: none;
 }
 
+/* ---------- fundo reativo à mixagem ---------- */
+
+.vibe-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vibe-bg__blob {
+  position: absolute;
+  width: 68vmax;
+  height: 68vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--blob-c) 21%, transparent) 0%,
+    transparent 65%
+  );
+  transition: opacity 500ms ease;
+}
+
+.vibe-bg__blob--acidez {
+  --blob-c: var(--c-acidez);
+  top: -30vmax;
+  left: -22vmax;
+}
+
+.vibe-bg__blob--picancia {
+  --blob-c: var(--c-picancia);
+  bottom: -30vmax;
+  right: -20vmax;
+}
+
+.vibe-bg__blob--intimidade {
+  --blob-c: var(--c-intimidade);
+  top: 24%;
+  left: -36vmax;
+}
+
+.vibe-bg__blob--exposicao {
+  --blob-c: var(--c-exposicao);
+  top: -28vmax;
+  right: -26vmax;
+}
+
+.vibe-bg__blob--caos {
+  --blob-c: var(--c-caos);
+  bottom: -28vmax;
+  left: 6%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vibe-bg__blob {
+    animation: blob-drift 22s ease-in-out infinite alternate;
+  }
+
+  .vibe-bg__blob--picancia {
+    animation-duration: 27s;
+    animation-delay: -9s;
+  }
+
+  .vibe-bg__blob--intimidade {
+    animation-duration: 19s;
+    animation-delay: -4s;
+  }
+
+  .vibe-bg__blob--exposicao {
+    animation-duration: 24s;
+    animation-delay: -14s;
+  }
+
+  .vibe-bg__blob--caos {
+    animation-duration: 17s;
+    animation-delay: -11s;
+  }
+}
+
+@keyframes blob-drift {
+  from {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
+
 /* ---------- shell ---------- */
 
 .app {
@@ -174,6 +262,13 @@ ol {
 }
 
 .fader__value {
+  min-width: 44px;
+  padding: 3px 6px;
+  text-align: center;
+  border-radius: 7px;
+  background: #07080d;
+  border: 1px solid color-mix(in srgb, var(--fc) 30%, var(--line));
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
   font-weight: 800;
   font-size: 1.05rem;
   font-variant-numeric: tabular-nums;
@@ -236,6 +331,21 @@ ol {
   pointer-events: none;
 }
 
+.fader__thumb::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  top: 5px;
+  bottom: 5px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.07) 0 1.5px,
+    transparent 1.5px 5px
+  );
+}
+
 .fader__thumb::after {
   content: '';
   position: absolute;
@@ -250,9 +360,12 @@ ol {
 }
 
 .fader__label {
-  font-size: 0.62rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(0.48rem, 2.1vw, 0.62rem);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--text-dim);
   white-space: nowrap;
@@ -566,7 +679,21 @@ ol {
   font-weight: 700;
 }
 
-.player-list li span {
+.player-list__avatar {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  color: var(--pc);
+  background: color-mix(in srgb, var(--pc) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pc) 45%, transparent);
+}
+
+.player-list__name {
+  flex: 1;
   overflow-wrap: anywhere;
 }
 
@@ -596,4 +723,75 @@ ol {
 .score-list li span:last-child {
   color: var(--accent);
   font-variant-numeric: tabular-nums;
+}
+
+/* ---------- movimento ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand__title {
+    background-size: 200% 100%;
+    animation: brand-pan 9s ease-in-out infinite alternate;
+  }
+
+  .overlay {
+    animation: fade-in 160ms ease-out;
+  }
+
+  .sheet {
+    animation: sheet-up 280ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  .modal {
+    animation: pop-in 200ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  .game-card {
+    animation: card-in 300ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  .stage-pass__name {
+    animation: rise-in 260ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+}
+
+@keyframes brand-pan {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(48px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }

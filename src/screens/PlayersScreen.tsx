@@ -1,8 +1,18 @@
 import { useState } from 'react';
+import type { CSSProperties } from 'react';
 import { BigButton } from '@/components/BigButton';
 import { useGameStore } from '@/store/useGameStore';
 
 const MIN_PLAYERS = 2;
+
+/** Cada jogador vira um "canal" da mesa: as cores das dimensões se revezam. */
+const CHANNEL_COLORS = [
+  'var(--c-caos)',
+  'var(--c-acidez)',
+  'var(--c-exposicao)',
+  'var(--c-picancia)',
+  'var(--c-intimidade)',
+];
 
 export function PlayersScreen() {
   const players = useGameStore((s) => s.players);
@@ -51,7 +61,14 @@ export function PlayersScreen() {
       <ul className="player-list">
         {players.map((player, index) => (
           <li key={`${player}-${index}`}>
-            <span>{player}</span>
+            <span
+              className="player-list__avatar"
+              style={{ '--pc': CHANNEL_COLORS[index % CHANNEL_COLORS.length] } as CSSProperties}
+              aria-hidden="true"
+            >
+              {player[0].toUpperCase()}
+            </span>
+            <span className="player-list__name">{player}</span>
             <button onClick={() => removePlayer(index)} aria-label={`Remover ${player}`}>
               ✕
             </button>
